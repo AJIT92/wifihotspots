@@ -15,8 +15,8 @@
     /* How about a different background color? */
     #map {width: 100%; height: 100%; background-color: #F7CE86;}
     .leaflet-popup-content li {list-style:none;}
-    .leaflet-popup-content {width: 102px;}
-    .leaflet-popup-content img {width: 100px;}
+    .leaflet-popup-content {width: 250px;}
+    .leaflet-popup-content img {width: 240px;}
     a {border: none;}
   </style>
   <body>
@@ -32,7 +32,7 @@
 
       function showInfo(data) {
         // the column headers of the info you want in your popup
-        var optionsJSON = ["placename", "photo-url"]
+        var optionsJSON = ["placename", "outdoorseating", "powersocket", "couch", "brew"]
         // an html template for your popup
         var template = "<ul><li><h4>{{placename}}</h4></li>"
                  + "<li>Outdoor Seating: {{outdoorseating}}</li>"
