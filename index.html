@@ -40,7 +40,7 @@
                  + "<li>Couch: {{couch}}</li>"
                  + "<li>Brew: {{brew}}</li></ul>"
         var geoJSON = Sheetsee.createGeoJSON(data, optionsJSON)
-        var map = Sheetsee.loadMap("map")
+        var map = Sheetsee.loadMap("map").setView([0.317, 32.579], 15)
         // Try different map tiles? examples.map-20v6611k
         // examples.map-y7l23tes
         // examples.map-h67hf2ic
