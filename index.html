@@ -34,18 +34,112 @@
     <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
   <link rel="stylesheet" href="css/github.css">
   </head>
-  <style>
+<!-- /*  <style>
     html {width: 100%; height: 100%;}
     body {width: 100%; height: 100%; margin: 0;}
-    /* How about a different background color? */
-    #map {width: 100%; height: 100%; background-color: #F7CE86;}
-    .leaflet-popup-content li {list-style:none;}
-    .leaflet-popup-content {width: 150px;}
-    .leaflet-popup-content img {width: 140px;}
-    a {border: none;}
-  </style>
+
+  </style>*/ -->
   <body>
-    <div id="map"></div>
+
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div class="container">
+    <section class="header">
+      <h2 class="title">Map Kampala's Wifi Hotspots</h2>
+       <!-- Why use Skeleton -->
+    <div class="docs-section" id="intro">
+      <h6 class="docs-header">Why?</h6>
+      <p>Easy place to search for the best wifi in Kampala. Especially for first time visitors</p>
+      <p>Love the idea? Tweet it! We appreciate the &#9829;</p>
+      <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://pethe.sparkpl.ug" data-text="Pethe - Public Expenditure Tracker for Health and Education in Uganda" data-via="sparkplugea" data-related="sparkplugea">Tweet</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+      <!-- <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.getskeleton.com&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=true&amp;height=21&amp;appId=151131931646052" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:21px; width:140px" allowTransparency="true"></iframe> -->
+      <iframe src="http://ghbtns.com/github-btn.html?user=sparkplug&repo=pethe&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe>
+      <iframe src="http://ghbtns.com/github-btn.html?user=sparkplug&repo=pethe&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe>
+    </div>
+
+    </section>
+  </div>
+
+  <div class="navbar-spacer"></div>
+    <nav class="navbar">
+      <div class="container">
+        <ul class="navbar-list">
+          <li class="navbar-item"><a class="navbar-link" href="#map">Wifi Hotspot Map</a></li>
+          <li class="navbar-item"><a class="navbar-link" href="#hotspot">Adding A Hotspot</a></li>
+
+
+        </ul>
+      </div>
+    </nav>
+
+    <div class="section general" id="map"></div>
+
+    <div class="section education" id="hotspot">
+    <div class="container">
+      <h3 class="section-heading">Education Indicators</h3>
+
+      <div class="row">
+        <div class="one-half column category">
+          <div class="chart-wrapper">
+          <div class="chart-title">
+            Youth Literacy Rate
+          </div>
+          <div class="chart-stage">
+            <div id="chart-06"></div>
+          </div>
+          <div class="chart-notes">
+            % of people ages 15-24
+          </div>
+        </div>
+        </div>
+        <div class="one-half column category">
+          <div class="chart-wrapper">
+          <div class="chart-title">
+            Primary School Enrollment
+          </div>
+          <div class="chart-stage">
+            <div id="chart-07"></div>
+          </div>
+          <div class="chart-notes">
+            Total Number
+          </div>
+        </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="one-half column category">
+          <div class="chart-wrapper">
+          <div class="chart-title">
+            Progression to secondary school, female
+          </div>
+          <div class="chart-stage">
+            <div id="chart-08"></div>
+          </div>
+          <div class="chart-notes">
+            Girls going to secondary school
+          </div>
+        </div>
+        </div>
+        <div class="one-half column category">
+          <div class="chart-wrapper">
+          <div class="chart-title">
+            Pupil-Teacher Ratio
+          </div>
+          <div class="chart-stage">
+            <div id="chart-09"></div>
+          </div>
+          <div class="chart-notes">
+            In primary schools
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<p class="small text-muted">Built with &#9829; by <a href="http://sparkpl.ug" target="_blank">Sparkplug</a>. Great job on Sheetsee by Jlord</p>
 
     <script type="text/javascript">
       var map;

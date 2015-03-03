@@ -92,3 +92,9 @@
   /* Re-overiding the width 100% declaration to match size of % based container */
   .has-docked-nav .navbar > .container {
     width: 80%; }
+/* map style */
+#map {width: 100%; height: 600px; background-color: #F7CE86;}
+    .leaflet-popup-content li {list-style:none;}
+    .leaflet-popup-content {width: 150px;}
+    .leaflet-popup-content img {width: 140px;}
+    a {border: none;}
