@@ -23,6 +23,7 @@
     <div id="map"></div>
 
     <script type="text/javascript">
+    var map;
       document.addEventListener('DOMContentLoaded', function() {
         // see how what the example spreadsheet looks like:
         // https://docs.google.com/spreadsheet/lv?key=0Ao5u1U6KYND7dGN5QngweVJUWE16bTRob0d2a3dCbnc
@@ -40,7 +41,7 @@
                  + "<li>Couch: {{couch}}</li>"
                  + "<li>Brew: {{brew}}</li></ul>"
         var geoJSON = Sheetsee.createGeoJSON(data, optionsJSON)
-        var map = Sheetsee.loadMap("map").setView([0.317, 32.579], 14)
+        map = Sheetsee.loadMap("map").setView([0.317, 32.579], 14)
         // Try different map tiles? examples.map-20v6611k
         // examples.map-y7l23tes
         // examples.map-h67hf2ic
