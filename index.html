@@ -23,7 +23,7 @@
     <div id="map"></div>
 
     <script type="text/javascript">
-    var map;
+      var map;
       document.addEventListener('DOMContentLoaded', function() {
         // see how what the example spreadsheet looks like:
         // https://docs.google.com/spreadsheet/lv?key=0Ao5u1U6KYND7dGN5QngweVJUWE16bTRob0d2a3dCbnc
@@ -45,6 +45,7 @@
         Sheetsee.addTileLayer(map, 'raybesiga.lbooidnh')
         Sheetsee.addMarkerLayer(geoJSON, map, template, 13)
       }
+      map..setView([0.317, 32.579], 13);
     </script>
   </body>
 </html>
