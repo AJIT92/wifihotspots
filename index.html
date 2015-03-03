@@ -42,7 +42,7 @@
                  + "<li><b>Brew:</b> {{brew}}</li></ul>"
         var geoJSON = Sheetsee.createGeoJSON(data, optionsJSON)
         map = Sheetsee.loadMap("map")
-        map.setView([0.317, 32.579], 13)
+        map._resetView([0.317, 32.579], 14)
         Sheetsee.addTileLayer(map, 'raybesiga.lbooidnh')
         Sheetsee.addMarkerLayer(geoJSON, map, template)
       }
