@@ -98,3 +98,9 @@
     .leaflet-popup-content {width: 150px;}
     .leaflet-popup-content img {width: 140px;}
     a {border: none;}
+
+    .colorText {
+color: #FF4646;
+text-transform: uppercase;
+font-weight: 700;
+}
