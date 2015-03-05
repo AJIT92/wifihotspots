@@ -82,18 +82,14 @@
       </div>
 
   </div>
-  <div class="container" id="hotspotlist">
-      <input id="tableFilter" type="text" placeholder="filter by.."></input>
-      <span class="clear button">Clear</span>
-      <span class="noMatches">no matches</span>
+  <div class="section">
+    <div class="container">
+      <input id="hotSpotsTableFilter" type="text" placeholder="filter by.."></input>
       <div id="hotSpotsTable"></div>
     </div>
+  </div>
 
-<footer>
-  <p class="small text-muted">Built with &#9829; by <a href="http://sparkpl.ug" target="_blank">Sparkplug</a>. Great job on <a href="http://jlord.us/sheetsee.js/" target="_blank">Sheetsee</a> by <a href="https://twitter.com/jllord" target="blank">Jessica Lord</p>
-</footer>
-
-    <script id="hotSpotsTable" type="text/html">
+  <script id="hotSpotsTable_template" type="text/html">
       <table>
       <tr><th class="tHeader">Name</th><th class="tHeader">Address</th><th class="tHeader">Date Added</th><th class="tHeader">Download Speed</th><th class="tHeader">Upload Speed</th><th class="">Elsewhere</th></tr>
         {{#rows}}
@@ -102,6 +98,12 @@
         {{/rows}}
       </table>
     </script>
+
+<footer>
+  <p class="small text-muted">Built with &#9829; by <a href="http://sparkpl.ug" target="_blank">Sparkplug</a>. Great job on <a href="http://jlord.us/sheetsee.js/" target="_blank">Sheetsee</a> by <a href="https://twitter.com/jllord" target="blank">Jessica Lord</p>
+</footer>
+
+
 
     <script type="text/javascript">
       var map;
@@ -134,7 +136,7 @@
           "data": data,
           "pagination": 10,
           "tableDiv": "#hotSpotsTable",
-          "filterDiv": "#tableFilter"
+          "filterDiv": "#hotSpotsTableFilter"
         }
         Sheetsee.makeTable(tableOptions)
         Sheetsee.initiateTableFilter(tableOptions)
