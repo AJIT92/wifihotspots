@@ -139,25 +139,25 @@
           $('.spotRow').removeClass("selectedRow")
           var rowNumber = $(this).closest("tr").attr("id")
           $('#' + rowNumber).addClass("selectedRow")
-          var dataElement = Sheetsee.getMatches(gData, rowNumber, "rowNumber")
+          var dataElement = Sheetsee.getMatches(data, rowNumber, "rowNumber")
           var selectedSpot = ich.selectedSpot({
             rows: dataElement
           })
           $('#selectedSpot').html(selectedSpot).css("display", "inline")
           var selectedCoords = [dataElement[0].lat, dataElement[0].long]
-          matchGeoJSONbyRowNumber(rowNumber, geoJSON, gData, "#FF4646")
+          matchGeoJSONbyRowNumber(rowNumber, geoJSON, data, "#FF4646")
           var markerLayer = Sheetsee.addMarkerLayer(geoJSON, map, 13)
           addPopups(map, markerLayer)
           map.panTo(selectedCoords, 13)
         })
         // find total number of spots added
-      var numberOfSpots = gData.length
+      var numberOfSpots = data.length
       var theNumberofSpots = ich.theNumberofSpots({
         numberOfSpots: numberOfSpots
       })
       $('#theNumberofSpots').html(theNumberofSpots)
 
-      function matchGeoJSONbyRowNumber(rowNumber, geoJSON, gdata, highlightColor) {
+      function matchGeoJSONbyRowNumber(rowNumber, geoJSON, data, highlightColor) {
         geoJSON.forEach(function (d) {
           if (d.properties["marker-color"] === highlightColor) {
             var origColor = gData[0].hexcolor
