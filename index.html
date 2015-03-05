@@ -75,9 +75,6 @@
       <h3 class="section-heading">Adding a Hotspot</h3>
 
       <div class="row">
-        <script id="theNumberofSpots" type="text/html">
-          <p><strong><span class="colorText">{{numberOfSpots}}</span> hack spots strong!</p>
-        </script>
         <p>To add a hostpot, access the Google Spreadsheet <a href="https://docs.google.com/spreadsheets/d/1sQaj4pt6Bn5Y6MoNin4NDs0WfJ200Fn4EFuccd0_Wvo/edit?usp=sharing" target="_blank">here</a>. Add the wifi hotspot details. Or copy, paste, edit. Smile, for a job well done, and refresh the page to look up your added hotspot. That's it.</p>
       </div>
     </div>
@@ -112,10 +109,10 @@
 
     <script type="text/javascript">
       var map;
+      var data;
       document.addEventListener('DOMContentLoaded', function() {
         // see how what the example spreadsheet looks like:
         // https://docs.google.com/spreadsheet/lv?key=0Ao5u1U6KYND7dGN5QngweVJUWE16bTRob0d2a3dCbnc
-        var data
         var URL = "https://docs.google.com/spreadsheets/d/1sQaj4pt6Bn5Y6MoNin4NDs0WfJ200Fn4EFuccd0_Wvo/pubhtml"
         Tabletop.init( { key: URL, callback: showInfo, simpleSheet: true } )
       })
@@ -145,14 +142,6 @@
         }
         Sheetsee.makeTable(tableOptions)
         Sheetsee.initiateTableFilter(tableOptions)
-
-        // find total number of spots added
-        var numberOfSpots = data.length
-        var theNumberofSpots = ich.theNumberofSpots({
-          numberOfSpots: numberOfSpots
-        })
-        $('#theNumberofSpots').html(theNumberofSpots)
-
 
       }
     </script>
