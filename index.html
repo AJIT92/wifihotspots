@@ -86,14 +86,14 @@
       <input id="tableFilter" type="text" placeholder="filter by.."></input>
       <span class="clear button">Clear</span>
       <span class="noMatches">no matches</span>
-      <div id="hackSpotsTable"></div>
+      <div id="hotSpotsTable"></div>
     </div>
 
 <footer>
   <p class="small text-muted">Built with &#9829; by <a href="http://sparkpl.ug" target="_blank">Sparkplug</a>. Great job on <a href="http://jlord.us/sheetsee.js/" target="_blank">Sheetsee</a> by <a href="https://twitter.com/jllord" target="blank">Jessica Lord</p>
 </footer>
 
-    <script id="hackSpotsTable" type="text/html">
+    <script id="hotSpotsTable" type="text/html">
       <table>
       <tr><th class="tHeader">Name</th><th class="tHeader">Address</th><th class="tHeader">Date Added</th><th class="tHeader">Download Speed</th><th class="tHeader">Upload Speed</th><th class="">Elsewhere</th></tr>
         {{#rows}}
@@ -128,6 +128,48 @@
         Sheetsee.addTileLayer(map, 'raybesiga.lbooidnh')
         Sheetsee.addMarkerLayer(geoJSON, map, template)
         map._resetView([0.328, 32.578], 14)
+
+        data
+        Sheetsee.makeTable(data, "#hotSpotsTable")
+        Sheetsee.initiateTableFilter(data, "#tableFilter", "#hotSpotsTable")
+
+        // when someone clicks on a row, highlight it and
+        // re-center the map
+        $('.spotRow').live("click", function(event) {
+          $('.spotRow').removeClass("selectedRow")
+          var rowNumber = $(this).closest("tr").attr("id")
+          $('#' + rowNumber).addClass("selectedRow")
+          var dataElement = Sheetsee.getMatches(gData, rowNumber, "rowNumber")
+          var selectedSpot = ich.selectedSpot({
+            rows: dataElement
+          })
+          $('#selectedSpot').html(selectedSpot).css("display", "inline")
+          var selectedCoords = [dataElement[0].lat, dataElement[0].long]
+          matchGeoJSONbyRowNumber(rowNumber, geoJSON, gData, "#FF4646")
+          var markerLayer = Sheetsee.addMarkerLayer(geoJSON, map, 13)
+          addPopups(map, markerLayer)
+          map.panTo(selectedCoords, 13)
+        })
+        // find total number of spots added
+      var numberOfSpots = gData.length
+      var theNumberofSpots = ich.theNumberofSpots({
+        numberOfSpots: numberOfSpots
+      })
+      $('#theNumberofSpots').html(theNumberofSpots)
+
+      function matchGeoJSONbyRowNumber(rowNumber, geoJSON, gdata, highlightColor) {
+        geoJSON.forEach(function (d) {
+          if (d.properties["marker-color"] === highlightColor) {
+            var origColor = gData[0].hexcolor
+            d.properties["marker-color"] = origColor
+          }
+          for (var key in d.opts) {
+            var value = d.opts[key].toString().toLowerCase()
+            if (key === 'rowNumber' && value.match(rowNumber.toString().toLowerCase())) {
+              d.properties["marker-color"] = highlightColor
+              return geoJSON
+            }
+          }
       }
     </script>
   </body>
