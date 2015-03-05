@@ -110,13 +110,19 @@
       var map;
 
       document.addEventListener('DOMContentLoaded', function() {
-        // see how what the example spreadsheet looks like:
-        // https://docs.google.com/spreadsheet/lv?key=0Ao5u1U6KYND7dGN5QngweVJUWE16bTRob0d2a3dCbnc
         var URL = "https://docs.google.com/spreadsheets/d/1sQaj4pt6Bn5Y6MoNin4NDs0WfJ200Fn4EFuccd0_Wvo/pubhtml"
         Tabletop.init( { key: URL, callback: showInfo, simpleSheet: true } )
       })
 
       function showInfo(data) {
+        var tableOptions = {
+          "data": data,
+          "pagination": 10,
+          "tableDiv": "#hotSpotsTable",
+          "filterDiv": "#hotSpotsTableFilter"
+        }
+        Sheetsee.makeTable(tableOptions)
+        Sheetsee.initiateTableFilter(tableOptions)
         // the column headers of the info you want in your popup
         var optionsJSON = ["placename", "address", "outdoorseating", "powersocket", "couch", "brew", "contributortwitter", "dateadded", "downloadspeedmbps", "uploadspeedmbps"]
         // an html template for your popup
@@ -132,17 +138,6 @@
         Sheetsee.addTileLayer(map, 'raybesiga.lbooidnh')
         Sheetsee.addMarkerLayer(geoJSON, map, template)
         map._resetView([0.328, 32.578], 14)
-
-        var tData = optionsJSON
-
-        var tableOptions = {
-          "data": tData,
-          "pagination": 10,
-          "tableDiv": "#hotSpotsTable",
-          "filterDiv": "#hotSpotsTableFilter"
-        }
-        Sheetsee.makeTable(tableOptions)
-        Sheetsee.initiateTableFilter(tableOptions)
 
       }
     </script>
