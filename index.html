@@ -108,6 +108,7 @@
       document.addEventListener('DOMContentLoaded', function() {
         // see how what the example spreadsheet looks like:
         // https://docs.google.com/spreadsheet/lv?key=0Ao5u1U6KYND7dGN5QngweVJUWE16bTRob0d2a3dCbnc
+        var data
         var URL = "https://docs.google.com/spreadsheets/d/1sQaj4pt6Bn5Y6MoNin4NDs0WfJ200Fn4EFuccd0_Wvo/pubhtml"
         Tabletop.init( { key: URL, callback: showInfo, simpleSheet: true } )
       })
@@ -129,6 +130,7 @@
         Sheetsee.addMarkerLayer(geoJSON, map, template)
         map._resetView([0.328, 32.578], 14)
 
+        data
         Sheetsee.makeTable(data, "#hotSpotsTable")
         Sheetsee.initiateTableFilter(data, "#tableFilter", "#hotSpotsTable")
 
