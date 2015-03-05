@@ -130,9 +130,14 @@
         Sheetsee.addMarkerLayer(geoJSON, map, template)
         map._resetView([0.328, 32.578], 14)
 
-        data
-        Sheetsee.makeTable(data, "#hotSpotsTable")
-        Sheetsee.initiateTableFilter(data, "#tableFilter", "#hotSpotsTable")
+        var tableOptions = {
+          "data": data,
+          "pagination": 10,
+          "tableDiv": "#hotSpotsTable",
+          "filterDiv": "#tableFilter"
+        }
+        Sheetsee.makeTable(tableOptions)
+        Sheetsee.initiateTableFilter(tableOptions)
 
         // find total number of spots added
         var numberOfSpots = data.length
