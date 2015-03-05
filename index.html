@@ -98,12 +98,12 @@
         var optionsJSON = ["placename", "address", "outdoorseating", "powersocket", "couch", "brew", "contributortwitter"]
         // an html template for your popup
         var template = "<ul><li><h4>{{placename}}</h4></li>"
+                 + "<li>Located at {{address}}</li>"
                  + "<li><b>Outdoor Seating:</b> {{outdoorseating}}</li>"
                  + "<li><b>Power Sockets:</b> {{powersocket}}</li>"
                  + "<li><b>Have Couch:</b> {{couch}}</li>"
                  + "<li><b>Special Brew:</b> {{brew}}</li>"
-                 + "<li>Located at {{address}}</li>"
-                 + "<li>Added by the awesome <a href='http://twitter.com/{{contributortwitter}}' target='_blank'>{{contributortwitter}}</li></ul>"
+                 + "<li><i>Added by the awesome <a href='http://twitter.com/{{contributortwitter}}' target='_blank'>{{contributortwitter}}</i></li></ul>"
         var geoJSON = Sheetsee.createGeoJSON(data, optionsJSON)
         map = Sheetsee.loadMap("map")
         Sheetsee.addTileLayer(map, 'raybesiga.lbooidnh')
