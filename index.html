@@ -95,14 +95,15 @@
 
       function showInfo(data) {
         // the column headers of the info you want in your popup
-        var optionsJSON = ["placename", "address", "outdoorseating", "powersocket", "couch", "brew"]
+        var optionsJSON = ["placename", "address", "outdoorseating", "powersocket", "couch", "brew", "contributortwitter"]
         // an html template for your popup
         var template = "<ul><li><h4>{{placename}}</h4></li>"
                  + "<li><b>Outdoor Seating:</b> {{outdoorseating}}</li>"
-                 + "<li><b>Power Socket:</b> {{powersocket}}</li>"
-                 + "<li><b>Couch:</b> {{couch}}</li>"
+                 + "<li><b>Power Sockets:</b> {{powersocket}}</li>"
+                 + "<li><b>Have Couch:</b> {{couch}}</li>"
                  + "<li><b>Special Brew:</b> {{brew}}</li></ul>"
                  + "<p class='colorText'>Located at {{address}}</b></p>"
+                 + "<p>Added by the awesome <a href='http://twitter.com/{{contributortwitter}}' target='_blank'>{{contributortwitter}}</a></p>"
         var geoJSON = Sheetsee.createGeoJSON(data, optionsJSON)
         map = Sheetsee.loadMap("map")
         Sheetsee.addTileLayer(map, 'raybesiga.lbooidnh')
