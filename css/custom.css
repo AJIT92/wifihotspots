@@ -100,7 +100,15 @@
     a {border: none;}
 
     .colorText {
-color: #FF4646;
-text-transform: uppercase;
-font-weight: 700;
-}
+    color: #FF4646;
+    text-transform: uppercase;
+    font-weight: 700;
+    }
+    #hackSpotsTable {cursor: pointer; background: #fff; overflow-x: auto; padding-bottom: 20px;}
+    #hackSpotsTable table {min-width: 900px;}
+    #hackSpotsTable .tHeader:hover {color: #FF4646;}
+    .tHeader::after {content: " \2193 \2191 "; font-size: 10px; padding-left: 3px;}
+    .spotRow:hover {color: #FF4646;}
+    .spotRow {border-left: 3px solid #ff00ff;}
+    .hideRow {display: none;}
+    .selectedRow {color: #FF4C0D;}

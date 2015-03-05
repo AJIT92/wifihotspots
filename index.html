@@ -26,7 +26,7 @@
     <!-- Scripts
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
-
+  <script src="js/ICanHaz.js"></script>
   <script src="js/site.js"></script>
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script type="text/javascript" src="js/tabletop1.3.4.js"></script>
@@ -75,14 +75,33 @@
       <h3 class="section-heading">Adding a Hotspot</h3>
 
       <div class="row">
+        <script id="theNumberofSpots" type="text/html">
+          <p><strong><span class="colorText">{{numberOfSpots}}</span> hack spots strong!</p>
+        </script>
         <p>To add a hostpot, access the Google Spreadsheet <a href="https://docs.google.com/spreadsheets/d/1sQaj4pt6Bn5Y6MoNin4NDs0WfJ200Fn4EFuccd0_Wvo/edit?usp=sharing" target="_blank">here</a>. Add the wifi hotspot details. Or copy, paste, edit. Smile, for a job well done, and refresh the page to look up your added hotspot. That's it.</p>
       </div>
 
   </div>
+  <div class="container" id="hotspotlist">
+      <input id="tableFilter" type="text" placeholder="filter by.."></input>
+      <span class="clear button">Clear</span>
+      <span class="noMatches">no matches</span>
+      <div id="hackSpotsTable"></div>
+    </div>
 
 <footer>
   <p class="small text-muted">Built with &#9829; by <a href="http://sparkpl.ug" target="_blank">Sparkplug</a>. Great job on <a href="http://jlord.us/sheetsee.js/" target="_blank">Sheetsee</a> by <a href="https://twitter.com/jllord" target="blank">Jessica Lord</p>
 </footer>
+
+    <script id="hackSpotsTable" type="text/html">
+      <table>
+      <tr><th class="tHeader">Name</th><th class="tHeader">Address</th><th class="tHeader">Date Added</th><th class="tHeader">Download Speed</th><th class="tHeader">Upload Speed</th><th class="">Elsewhere</th></tr>
+        {{#rows}}
+          <tr id="{{rowNumber}}" class="spotRow"><td>{{placename}}</td><td>{{address}}</td><td>{{dateadded}}</td><td>{{downloadspeedmbps}}</td><td>{{uploadspeedmbps}}</td><td><a class="button" href="https://maps.google.com/maps?q={{address}},{{city}},{{country}}" target="_blank">G Map</a> <a class="button" href="https://www.hellofood.ug/restaurants?user_search={{name}}" target="_blank">Hellofood</a></td></tr>
+          <tr class="hideRow"><td>wifi: {{wifipassword}}</td></tr>
+        {{/rows}}
+      </table>
+    </script>
 
     <script type="text/javascript">
       var map;
