@@ -134,8 +134,10 @@
         Sheetsee.addMarkerLayer(geoJSON, map, template)
         map._resetView([0.328, 32.578], 14)
 
+        var tData = optionsJSON
+
         var tableOptions = {
-          "data": optionsJSON,
+          "data": tData,
           "pagination": 10,
           "tableDiv": "#hotSpotsTable",
           "filterDiv": "#hotSpotsTableFilter"
