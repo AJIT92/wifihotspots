@@ -115,14 +115,6 @@
       })
 
       function showInfo(data) {
-        var tableOptions = {
-          "data": data,
-          "pagination": 10,
-          "tableDiv": "#hotSpotsTable",
-          "filterDiv": "#hotSpotsTableFilter"
-        }
-        Sheetsee.makeTable(tableOptions)
-        Sheetsee.initiateTableFilter(tableOptions)
         // the column headers of the info you want in your popup
         var optionsJSON = ["placename", "address", "outdoorseating", "powersocket", "couch", "brew", "contributortwitter", "dateadded", "downloadspeedmbps", "uploadspeedmbps"]
         // an html template for your popup
@@ -138,6 +130,17 @@
         Sheetsee.addTileLayer(map, 'raybesiga.lbooidnh')
         Sheetsee.addMarkerLayer(geoJSON, map, template)
         map._resetView([0.328, 32.578], 14)
+
+        var tData = optionsJSON
+
+        var tableOptions = {
+          "data": tData,
+          "pagination": 10,
+          "tableDiv": "#hotSpotsTable",
+          "filterDiv": "#hotSpotsTableFilter"
+        }
+        Sheetsee.makeTable(tableOptions)
+        Sheetsee.initiateTableFilter(tableOptions)
 
       }
     </script>
